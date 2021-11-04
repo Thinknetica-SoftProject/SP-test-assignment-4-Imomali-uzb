@@ -40,7 +40,7 @@ File.open("data/4.txt", "r") do |file|
     width = sortedParams[2]
     result = result + 3*length*heigth + 2*length*width + 2*heigth*width
   end
-  puts "#{result}"
 end
+puts result
 
 
