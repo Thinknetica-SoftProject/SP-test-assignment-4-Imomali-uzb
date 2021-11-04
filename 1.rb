@@ -29,7 +29,7 @@ str.each_char do |c|
     floor -= 1
   end
 end
-puts "#{floor}"
+puts floor
 
 
 
