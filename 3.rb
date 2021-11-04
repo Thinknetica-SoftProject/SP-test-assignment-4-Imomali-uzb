@@ -9,5 +9,39 @@
 # - Результат должен быть выведен в консоль командой puts
 #
 ## Решение:
+arr = Array.new
+result = 0
 
+File.open("data/3.txt", "r") do |file|
+  arr = file.readlines
+
+  for str in arr do
+    i = 0
+    size = 0
+    maxNum = 0
+    minNum = 0
+    newNum = 0
+    str.each_char do |c|
+      if (c != "\t" && c != "\n")
+        size += 1
+      else
+        newNum = str[i, size].to_i
+        if i == 0
+          minNum = newNum
+          maxNum = newNum
+        else
+          if (newNum > maxNum)
+            maxNum = newNum
+          elsif (newNum < minNum)
+            minNum = newNum
+          end
+        end
+        i = i + size + 1
+        size = 0
+      end
+    end
+    result = result + (maxNum - minNum)
+  end
+  puts "#{result}"
+end
 
