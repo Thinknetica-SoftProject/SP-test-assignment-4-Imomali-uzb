@@ -15,5 +15,32 @@
 #
 #
 ## Решение:
+arr = Array.new
+result = 0
+File.open("data/4.txt", "r") do |file|
+  arr = file.readlines
+  for str in arr
+    i = 0
+    index = 0
+    size = 0
+    params = [0, 0, 0] #params is parametrs.
+    str.each_char do |c|
+      if (c != "x" && c != "\n")
+        size += 1
+      else
+        params[index] = str[i, size].to_i
+        i = i + size + 1
+        index += 1
+        size = 0
+      end
+    end
+    sortedParams = params.sort
+    length = sortedParams[0]
+    heigth = sortedParams[1]
+    width = sortedParams[2]
+    result = result + 3*length*heigth + 2*length*width + 2*heigth*width
+  end
+  puts "#{result}"
+end
 
 
