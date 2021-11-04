@@ -42,6 +42,5 @@ File.open("data/3.txt", "r") do |file|
     end
     result = result + (maxNum - minNum)
   end
-  puts "#{result}"
 end
-
+puts result
