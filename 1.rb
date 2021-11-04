@@ -16,6 +16,20 @@
 #
 ## Решение:
 
+arr = Array.new
+floor = 0
+File.open("data/1.txt", "r") do |file|
+    arr = file.readlines
+end
+str = arr.to_s
+str.each_char do |c|
+  if c == '('
+    floor += 1
+  elsif c == ')'
+    floor -= 1
+  end
+end
+puts "#{floor}"
 
 
 
