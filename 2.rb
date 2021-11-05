@@ -17,17 +17,16 @@
 ## Решение:
 require "digest"
 string = gets.chomp
-lenString = string.length
 i = 1
 while (1)
   num = i.to_s
   string.concat(num)
   res = Digest::MD5.hexdigest string
   if (res[0,5] == "00000")
-    puts "#{i}"
+    puts i
     break
   end
-  string.slice!(lenString)
+  string.slice!(num)
   i += 1
 end
 
